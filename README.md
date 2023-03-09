@@ -35,6 +35,8 @@ Have a happy code. 😄
 │   PyInstaller generate the sys file.
 ├─logs
 |   Save the log file, include the doctor's selections.
+├─imgs
+|   imgs used by README.md.
 ├─misc
 |   The additional video file decoder.
 ├─test_video
@@ -69,6 +71,13 @@ So we need to install additional decoders, where locate in [LAVFilters](misc/LAV
 
 ⚠️ Need first to install the additional decoder, otherwise an error will reported!
 
+Make sure you install the PyQt5 and PyInstaller, or install them with pip.
+
+``` bash
+pip install PyQt5
+pip install pyinstaller
+```
+
 ## Invert .ui to .py
 
 For PyQt5 import, you can invert the .ui file to the .py file.
@@ -83,3 +92,5 @@ python -m PyQt5.uic.pyuic [GUI.ui] > [GUI.py]
 
 In [build.py](build.py), can use PyInstaller to compile the .py file to .exe app.
 For the final user.  
+
+> ⚠️ Users should first check the **manual.docx** document to see how to use this application.
