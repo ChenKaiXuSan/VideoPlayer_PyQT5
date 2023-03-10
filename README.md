@@ -13,9 +13,9 @@ This project make the interface for Adult Spinal Deformity (ASD), used for docto
 The attention body part include:
 
 - head
-- arm
-- upper
-- lower
+- shoulder (cervical)
+- wrist
+- lumbar, pelvis
 - foot
 - don't konw
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'GUI.ui'
+# Form implementation generated from reading ui file 'UI/GUI.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -16,7 +16,7 @@ from PyQt5.QtCore import pyqtSignal
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1152, 771)
+        MainWindow.resize(1254, 839)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
@@ -34,18 +34,18 @@ class Ui_MainWindow(object):
         self.head_btn.setCheckable(True)
         self.head_btn.setObjectName("head_btn")
         self.verticalLayout_2.addWidget(self.head_btn)
-        self.arm_btn = QtWidgets.QPushButton(self.centralwidget)
-        self.arm_btn.setCheckable(True)
-        self.arm_btn.setObjectName("arm_btn")
-        self.verticalLayout_2.addWidget(self.arm_btn)
-        self.upper_btn = QtWidgets.QPushButton(self.centralwidget)
-        self.upper_btn.setCheckable(True)
-        self.upper_btn.setObjectName("upper_btn")
-        self.verticalLayout_2.addWidget(self.upper_btn)
-        self.lower_btn = QtWidgets.QPushButton(self.centralwidget)
-        self.lower_btn.setCheckable(True)
-        self.lower_btn.setObjectName("lower_btn")
-        self.verticalLayout_2.addWidget(self.lower_btn)
+        self.shoulder_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.shoulder_btn.setCheckable(True)
+        self.shoulder_btn.setObjectName("shoulder_btn")
+        self.verticalLayout_2.addWidget(self.shoulder_btn)
+        self.wrist_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.wrist_btn.setCheckable(True)
+        self.wrist_btn.setObjectName("wrist_btn")
+        self.verticalLayout_2.addWidget(self.wrist_btn)
+        self.lumbar_pelvis_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.lumbar_pelvis_btn.setCheckable(True)
+        self.lumbar_pelvis_btn.setObjectName("lumbar_pelvis_btn")
+        self.verticalLayout_2.addWidget(self.lumbar_pelvis_btn)
         self.foot_btn = QtWidgets.QPushButton(self.centralwidget)
         self.foot_btn.setCheckable(True)
         self.foot_btn.setObjectName("foot_btn")
@@ -89,16 +89,28 @@ class Ui_MainWindow(object):
         self.disease_unknown_btn.setCheckable(True)
         self.disease_unknown_btn.setObjectName("disease_unknown_btn")
         self.verticalLayout_2.addWidget(self.disease_unknown_btn)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.verticalLayout_2.addItem(spacerItem2)
+        self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
+        self.textBrowser.setEnabled(True)
+        self.textBrowser.setMinimumSize(QtCore.QSize(100, 100))
+        self.textBrowser.setObjectName("textBrowser")
+        self.verticalLayout_2.addWidget(self.textBrowser)
         self.gridLayout_2.addLayout(self.verticalLayout_2, 0, 5, 1, 1)
-        spacerItem2 = QtWidgets.QSpacerItem(28, 498, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_2.addItem(spacerItem2, 0, 4, 3, 1)
+        spacerItem3 = QtWidgets.QSpacerItem(28, 498, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_2.addItem(spacerItem3, 0, 4, 3, 1)
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.wgt_video = myVideoWidget(self.centralwidget)
         self.wgt_video.setEnabled(True)
-        self.wgt_video.setMinimumSize(QtCore.QSize(600, 600))
+        self.wgt_video.setMinimumSize(QtCore.QSize(700, 700))
         self.wgt_video.setObjectName("wgt_video")
-        self.verticalLayout.addWidget(self.wgt_video)
+        self.verticalLayout_5.addWidget(self.wgt_video)
+        self.verticalLayout.addLayout(self.verticalLayout_5)
+        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.verticalLayout.addItem(spacerItem4)
         self.start_button = QtWidgets.QPushButton(self.centralwidget)
         self.start_button.setObjectName("start_button")
         self.verticalLayout.addWidget(self.start_button)
@@ -109,13 +121,9 @@ class Ui_MainWindow(object):
         self.next_button.setObjectName("next_button")
         self.verticalLayout.addWidget(self.next_button)
         self.gridLayout_2.addLayout(self.verticalLayout, 0, 0, 1, 2)
-        self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowser.setEnabled(True)
-        self.textBrowser.setObjectName("textBrowser")
-        self.gridLayout_2.addWidget(self.textBrowser, 1, 5, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1152, 18))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1254, 18))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -132,35 +140,35 @@ class Ui_MainWindow(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt;\">Which part do your attention?</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; color:#ff0000;\">(Multiple choice or don\'t know)</span></p></body></html>"))
-        self.head_btn.setText(_translate("MainWindow", "head"))
-        self.arm_btn.setText(_translate("MainWindow", "arm"))
-        self.upper_btn.setText(_translate("MainWindow", "upper"))
-        self.lower_btn.setText(_translate("MainWindow", "lower"))
-        self.foot_btn.setText(_translate("MainWindow", "foot"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt;\">What part of the body do you focus on?</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; color:#ff0000;\">(single choice)</span></p></body></html>"))
+        self.head_btn.setText(_translate("MainWindow", "head (頭)"))
+        self.shoulder_btn.setText(_translate("MainWindow", "shoulder (cervical) 肩（頚胸椎）"))
+        self.wrist_btn.setText(_translate("MainWindow", "wrist (腕)"))
+        self.lumbar_pelvis_btn.setText(_translate("MainWindow", "lumbar, pelvis (腰椎・骨盤)"))
+        self.foot_btn.setText(_translate("MainWindow", "foot　(足)"))
         self.focus_unkonwn_btn.setText(_translate("MainWindow", "don\'t know"))
         self.disease_text.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Agency FB\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\'; font-size:20pt;\">select disease you guess?</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\'; font-size:20pt;\">Guess which disease is in the video?</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'SimSun\'; font-size:20pt; color:#ff0000;\">(single choice)</span></p></body></html>"))
         self.asd_btn.setText(_translate("MainWindow", "ASD"))
         self.non_asd_btn.setText(_translate("MainWindow", "non ASD"))
         self.disease_unknown_btn.setText(_translate("MainWindow", "don\'t know"))
-        self.wgt_video.setWhatsThis(_translate("MainWindow", "video player"))
-        self.start_button.setText(_translate("MainWindow", "start"))
-        self.stop_button.setText(_translate("MainWindow", "stop"))
-        self.next_button.setText(_translate("MainWindow", "next"))
         self.textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; color:#ff0000;\">current:</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; color:#ff0000;\">total:</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; color:#ff0000;\">remain:</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#ff0000;\"><br /></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; color:#ff0000;\">current:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; color:#ff0000;\">total:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; color:#ff0000;\">remain:</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:20pt; color:#ff0000;\"><br /></p></body></html>"))
+        self.wgt_video.setWhatsThis(_translate("MainWindow", "video player"))
+        self.start_button.setText(_translate("MainWindow", "start"))
+        self.stop_button.setText(_translate("MainWindow", "stop"))
+        self.next_button.setText(_translate("MainWindow", "next"))
 
 class myVideoWidget(QVideoWidget):
     doubleClickedItem = pyqtSignal(str)  # 创建双击信号

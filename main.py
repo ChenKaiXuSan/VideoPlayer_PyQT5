@@ -52,9 +52,18 @@ def out_to_csv(info_dict: dict, name:str = 'test'):
     localtime = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()) 
 
     for key in info_dict.keys():
+        
+        video_file_name = info_dict[key][0].split('\\')[1].rsplit('_', 2)[0]
+        video_number = info_dict[key][0].split('\\')[1].rsplit('_', 2)[1].split('-')[1]
+        flag = info_dict[key][0].split('\\')[1].rsplit('_', 1)[1].split('.')[0]
+
+        info_dict[key].insert(0, video_file_name)
+        info_dict[key].insert(1, video_number)
+        info_dict[key].insert(2, flag)
+
         info_list.append(info_dict[key])
 
-    df = pd.DataFrame(info_list, columns=['path','attention','disease'],dtype=float)
+    df = pd.DataFrame(info_list, columns=['video file name', 'video number', 'flag', 'path','attention','disease'],dtype=str)
     df.to_csv(os.path.join('logs', "%s_%s.csv" % (name, localtime)))
     
     print(df)
@@ -186,22 +195,18 @@ class myMainWindow(Ui_MainWindow,QMainWindow):
             # check btn states.
             attn_total, disease_total = self.check_btn()
 
-            if attn_total == 0:
+            if attn_total != 1:
 
-                QMessageBox.about(self, 'warning', 'Attention should select one or more!')
+                QMessageBox.about(self, 'warning', 'Focus part is single choice!')
                 return
             
-            if disease_total ==0:
-
-                QMessageBox.about(self, 'warning', 'Disease should select one!')
-                return
-
-            if disease_total > 1:
+            if disease_total != 1:
 
                 QMessageBox.about(self, 'warning', 'Disease is single choice!')
                 return
             
             # when next btn clicked, fresh the btn states.
+            # todo
             attn_list, disease_list = self.init_btn()
 
             # save selected btn info.
@@ -231,21 +236,26 @@ class myMainWindow(Ui_MainWindow,QMainWindow):
         disease_list = []
 
         # init attention btn with multi case
-        if self.upper_btn.isChecked():
-            self.upper_btn.setChecked(False)
-            attn_list.append(self.upper_btn.objectName())
-        if self.lower_btn.isChecked():
-            self.lower_btn.setChecked(False)
-            attn_list.append(self.lower_btn.objectName())
         if self.head_btn.isChecked():
             self.head_btn.setChecked(False)
             attn_list.append(self.head_btn.objectName())
-        if self.arm_btn.isChecked():
-            self.arm_btn.setChecked(False)
-            attn_list.append(self.arm_btn.objectName())
+
+        if self.shoulder_btn.isChecked():
+            self.shoulder_btn.setChecked(False)
+            attn_list.append(self.shoulder_btn.objectName())
+            
+        if self.wrist_btn.isChecked():
+            self.wrist_btn.setChecked(False)
+            attn_list.append(self.wrist_btn.objectName())
+
+        if self.lumbar_pelvis_btn.isChecked():
+            self.lumbar_pelvis_btn.setChecked(False)
+            attn_list.append(self.lumbar_pelvis_btn.objectName())
+
         if self.foot_btn.isChecked():
             self.foot_btn.setChecked(False)
             attn_list.append(self.foot_btn.objectName())
+
         if self.focus_unkonwn_btn.isChecked():
             self.focus_unkonwn_btn.setChecked(False)
             attn_list.append(self.focus_unkonwn_btn.objectName())
@@ -275,13 +285,13 @@ class myMainWindow(Ui_MainWindow,QMainWindow):
         disease_total = 0
 
         # init attention btn 
-        if self.upper_btn.isChecked():
-            attn_total += 1
-        if self.lower_btn.isChecked():
-            attn_total += 1
         if self.head_btn.isChecked():
             attn_total += 1
-        if self.arm_btn.isChecked():
+        if self.wrist_btn.isChecked():
+            attn_total += 1
+        if self.shoulder_btn.isChecked():
+            attn_total += 1
+        if self.lumbar_pelvis_btn.isChecked():
             attn_total += 1
         if self.foot_btn.isChecked():
             attn_total += 1
